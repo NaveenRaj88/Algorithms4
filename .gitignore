@@ -1,0 +1,4 @@
+*.DS_Store
+/resources/*.txt
+/resources/*.csv
+/resources/
