@@ -30,7 +30,10 @@ public class FixedCapacityStack<Item> implements Iterable<Item>{
 	public int size() {
 		return size;
 	}
-
+	
+	public boolean isFull(){
+		return size == items.length;
+	}
 	public static void main(String[] args) {
 		FixedCapacityStack<String> s;
 		s = new FixedCapacityStack<String>(100);
