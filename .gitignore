@@ -3,3 +3,4 @@
 /resources/*.csv
 /resources/
 *.class
+/bin/

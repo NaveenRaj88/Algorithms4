@@ -2,9 +2,9 @@ package com.chap01;
 
 import java.util.Iterator;
 
-public class Stack<T> implements Iterable<T> {
+public class Stack<Item> implements Iterable<Item> {
 	
-	private Node<T> head;
+	private Node<Item> head;
 	private int size;
 	
 	//create an empty stack
@@ -13,8 +13,8 @@ public class Stack<T> implements Iterable<T> {
 	}
 	
 	// add an item
-	public void push(T t){
-		Node<T> node = new Node<T>(t);
+	public void push(Item t){
+		Node<Item> node = new Node<Item>(t);
 		if(head == null){
 			head=node;
 		}else{
@@ -24,9 +24,12 @@ public class Stack<T> implements Iterable<T> {
 		size++;
 	}
 	
+	public Item peek(){
+		return head.value;
+	}
 	// remove the most recently added item
-	public T pop(){
-		Node<T> temp = head;
+	public Item pop(){
+		Node<Item> temp = head;
 		head=head.nextNode;
 		size--;
 		return temp.value;
@@ -43,8 +46,8 @@ public class Stack<T> implements Iterable<T> {
 	}
 
 	@Override
-	public Iterator<T> iterator() {
-		// TODO Auto-generated method stub
+	public Iterator<Item> iterator() {
+		// ItemODO Auto-generated method stub
 		return null;
 	}
 }
