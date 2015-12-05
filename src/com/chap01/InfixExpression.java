@@ -8,7 +8,9 @@ public class InfixExpression {
 		Stack<String> operator = new Stack<>();
 		for (String s : st) {
 			if (s.equals(")")) {
-				operand.push("(" + operand.pop() + operator.pop() + operand.pop() + s);
+				String second = operand.pop();
+				String first = operand.pop();
+				operand.push("(" + first + operator.pop() + second+ s);
 			}
 			if (isNumber(s)) {
 				operand.push(s);
@@ -17,9 +19,8 @@ public class InfixExpression {
 				operator.push(s);
 			}
 		}
-		for(String s : operand){
-			System.out.println(s);
-		}
+		
+			System.out.println(operand.pop());
 	}
 
 	private boolean isNumber(String s) {
