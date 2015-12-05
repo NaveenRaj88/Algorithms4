@@ -3,4 +3,8 @@
 /resources/*.csv
 /resources/
 *.class
+<<<<<<< HEAD
 /target/
+=======
+/bin/
+>>>>>>> branch 'master' of https://github.com/naveenaju/Algorithms4.git
