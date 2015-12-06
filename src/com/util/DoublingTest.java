@@ -1,6 +1,6 @@
 package com.util;
 
-import com.chap14.ThreeSum;
+import com.chap01.sec1_4.ThreeSum;
 
 public class DoublingTest {
 

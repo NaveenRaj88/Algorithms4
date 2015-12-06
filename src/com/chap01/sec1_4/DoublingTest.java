@@ -1,6 +1,6 @@
-package com.chap14;
+package com.chap01.sec1_4;
 
-import com.chap14.ThreeSum;
+import com.chap01.sec1_4.ThreeSum;
 import com.util.StdOut;
 import com.util.StdRandom;
 import com.util.Stopwatch;

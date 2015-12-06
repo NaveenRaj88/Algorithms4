@@ -27,7 +27,6 @@ public class BinarySearch {
 
 	public static void main(String[] args) {
 		int[] a = ArrayGenerator.generateIntArray(10);
-		InsertionSort.insertionSortPractice(a);
 		System.out.println(Arrays.toString(a)+a[7]);
 		binarySearch(a , a[7]);
 	}

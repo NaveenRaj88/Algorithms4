@@ -1,4 +1,4 @@
-package com.chap14;
+package com.chap01.sec1_4;
 
 import com.util.ArrayGenerator;
 import com.util.ArrayPrint;
