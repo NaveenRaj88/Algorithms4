@@ -20,7 +20,7 @@ public class ThreeSumFast {
 	}
 
 	public static void main(String[] args) {
-		int[] a = In.readInts("resources/32Kints.txt");
+		int[] a = In.readInts("resources/1Mints.txt");
 		StdOut.println(count(a));
 	}
 
