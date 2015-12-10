@@ -7,11 +7,12 @@ import java.util.Random;
 import java.util.Set;
 
 public class ArrayGenerator {
-	static Random r = new Random();
+	
+	static Random random = new Random();
 	public static int[] generateIntArray(int size){
 		int[] i = new int[size];
 		for (int j = 0; j < size; j++) {
-			i[j] = r.nextInt(47);
+			i[j] = random.nextInt(47);
 		}
 		return i;
 	}
@@ -30,7 +31,7 @@ public class ArrayGenerator {
 	public static int[] generateIntArray(int size, int range){
 		int[] i = new int[size];
 		for (int j = 0; j < size; j++) {
-			i[j] = r.nextInt(range);
+			i[j] = random.nextInt(range);
 		}
 		return i;
 	}
@@ -39,7 +40,7 @@ public class ArrayGenerator {
 		Set<Integer> s = new HashSet<Integer>();
 		int position = 0;
 		while(s.size()<size){
-			s.add(r.nextInt(47));
+			s.add(random.nextInt(47));
 		}
 		int[] i = new int[s.size()];
 		for (Iterator<Integer> iterator = s.iterator(); iterator.hasNext();) {
@@ -53,7 +54,7 @@ public class ArrayGenerator {
 		int[][] a = new int [rows][col];
 		for (int[] is : a) {
 			for (int j = 0; j < is.length; j++) {
-				is[j] = r.nextInt(47);
+				is[j] = random.nextInt(47);
 			}
 		}
 		return a;
@@ -62,7 +63,7 @@ public class ArrayGenerator {
 	public static double[] generateDoubleArray(int size){
 		double[] d = new double[size];
 		for (int i = 0; i < d.length; i++) {
-			d[i] = r.nextDouble() * 47;
+			d[i] = random.nextDouble() * 47;
 		}
 		return d;
 	}
@@ -70,7 +71,7 @@ public class ArrayGenerator {
 	public static double[] generateDoubleArray(int size, int range){
 		double[] d = new double[size];
 		for (int i = 0; i < d.length; i++) {
-			d[i] = Math.random() * r.nextInt(range);
+			d[i] = Math.random() * random.nextInt(range);
 		}
 		return d;
 	}
@@ -78,7 +79,7 @@ public class ArrayGenerator {
 	public static Integer[] wrapperIntArray(int size){
 		Integer[] a = new Integer[size];
 		for (int i = 0; i < a.length; i++) {
-			a[i]=r.nextInt(47);
+			a[i]=random.nextInt(47);
 		}
 		return a;
 	}
@@ -91,19 +92,19 @@ public class ArrayGenerator {
 	
 	public static int[] generateAscendingIntArrayWithDuplicates(int size) {
 		int[] i = new int[size];
-		int random =0;
+		int val =0;
 		for (int j = 0; j < i.length; j++) {
-			random = (int) r.nextInt(47);
-			while(random == 0 ){
-				random = (int) r.nextInt(47);
+			val = (int) random.nextInt(47);
+			while(val == 0 ){
+				val = (int) random.nextInt(47);
 			}
-			i[j] = random;
-			 random = (int) r.nextInt(10);
-			if (random < i.length - j) {
-				 while(random > 0){
+			i[j] = val;
+			val = (int) random.nextInt(10);
+			if (val < i.length - j) {
+				 while(val > 0){
 					 j++;
 					 i[j]=i[j-1];
-					 random--;
+					 val--;
 					 
 					}
 			}
@@ -112,4 +113,15 @@ public class ArrayGenerator {
 
 	}
 	
+	public static int[] generateIntArrayWithDuplicates(int size){
+		int[] a = generateIntArray(size);
+		for (int i = 0; i < (a.length*3)/4; i++) {
+			a[i] = a[random.nextInt(a.length)];
+		}
+		return a;
+	}
+	
+	public static void main(String[] args) {
+		ArrayPrint.printArray(generateIntArrayWithDuplicates(20));
+	}
 }
