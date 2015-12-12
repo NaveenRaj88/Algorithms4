@@ -124,4 +124,13 @@ public class ArrayGenerator {
 	public static void main(String[] args) {
 		ArrayPrint.printArray(generateIntArrayWithDuplicates(20));
 	}
+	
+	public static int[] generateIntArrayWithNegatives(int size){
+		int[] a= new int[size];
+		for (int i = 0; i < a.length; i++) {
+			a[i] = random.nextInt(10)-5;
+		}
+		Arrays.sort(a);
+		return a;
+	}
 }
