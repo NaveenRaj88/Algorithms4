@@ -14,14 +14,14 @@ public class MergeSort {
 			p++;
 		}
 		 for (int k = 0; k <=r ; k++) {
-			 q++
-			rArr[k] = i[q]
+			 q++;
+			rArr[k] = i[q];
 		}
-		while (ls <= le && rs <= re){
-			if(){
-				
-			}
-		}
+//		while (ls <= le && rs <= re){
+//			if(){
+//
+//			}
+//		}
 		 
 		 
 	}
@@ -29,7 +29,7 @@ public class MergeSort {
 	public static void main(String[] args) {
 		int [] a = ArrayGenerator.generateIntArray(10000);
 		System.out.println(Arrays.toString(a));
-		msp.mergeSort(a, 0, a.length);
+//		msp.mergeSort(a, 0, a.length);
 		System.out.println(Arrays.toString(a));
 	}
 }

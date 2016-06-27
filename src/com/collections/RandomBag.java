@@ -1,6 +1,6 @@
 package com.collections;
 
-public interface RandomBag<Item> implements Iterable<Item> {
+public interface RandomBag<Item> extends Iterable<Item> {
 
 	
 }
