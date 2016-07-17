@@ -12,10 +12,10 @@ public class ReverseTheArray {
         int[] a = ArrayGenerator.generateIntArray(11);
         System.out.println(Arrays.toString(a));
         int length = a.length;
-        for (int i = 0; i <length/2 ; i++) {
+        for (int i = 0; i < length / 2; i++) {
             int temp = a[i];
-            a[i] = a[length-i-1];
-            a[length-i-1] = temp;
+            a[i] = a[length - i - 1];
+            a[length - i - 1] = temp;
         }
         System.out.println(Arrays.toString(a));
     }
