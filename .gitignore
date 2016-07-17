@@ -10,5 +10,8 @@
 *.prefs
 .idea/
 /.idea/
-
-.idea/misc.xml
+.idea/misc.xml.idea/compiler.xml
+.idea/copyright
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
