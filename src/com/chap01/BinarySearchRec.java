@@ -42,7 +42,7 @@ public class BinarySearchRec {
 	public static void main(String[] args) {
 		int[] a = ArrayGenerator.generateAscendingIntArray(10);
 		ArrayPrint.printArray(a);
-		System.out.println(bSearchRec(a, a.length - 1, 0, a[7], 0));
+		System.out.println(bSearchRec(a, a.length - 1, 0, a[3], 0));
 	}
 
 }
