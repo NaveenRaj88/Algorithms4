@@ -3,8 +3,12 @@
 /resources/*.csv
 /resources/
 *.class
+*.iml
+*.idea
 <<<<<<< HEAD
 /target/
 =======
 /bin/
 >>>>>>> branch 'master' of https://github.com/naveenaju/Algorithms4.git
+
+*.prefs
