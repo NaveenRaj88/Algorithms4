@@ -1,6 +1,6 @@
-package com.chap01;
+package com.chap01.sec1_1;
 
-public class LogOfN {
+public class Ex_1_1_14_LogOfN {
 
     public static void main(String[] args) {
         System.out.println(getBase2Log(64));

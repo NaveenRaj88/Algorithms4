@@ -12,5 +12,9 @@ public class Ex1_1_2 {
         System.out.println(1 + 2 + 3 + 4.0);
         System.out.println(4.1 >= 4);
         System.out.println(1 + 2 + "3");
+
+        System.out.println('a'+'b');
+        System.out.println('b');
+        System.out.println((char)'a'+4);
     }
 }

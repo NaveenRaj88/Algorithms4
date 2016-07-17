@@ -1,11 +1,11 @@
-package com.chap01;
+package com.chap01.sec1_1;
 
 import java.util.Arrays;
 
 import com.util.ArrayGenerator;
 import com.util.ArrayPrint;
 
-public class Histogram {
+public class Histogram_EX_1_1_15 {
 
 	public static void main(String[] args) {
 		int[] a = ArrayGenerator.generateIntArray(7);

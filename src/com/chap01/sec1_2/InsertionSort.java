@@ -1,6 +1,5 @@
-package com.chap21;
+package com.chap01.sec1_2;
 
-import com.util.ArrayGenerator;
 import com.util.In;
 
 public class InsertionSort extends AbstractSort {
