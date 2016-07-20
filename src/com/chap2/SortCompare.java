@@ -1,4 +1,4 @@
-package com.chap01.sec1_2;
+package com.chap2;
 
 import com.util.StdOut;
 import com.util.StdRandom;

@@ -1,4 +1,4 @@
-package com.chap01.sec1_2;
+package com.chap2;
 
 public abstract class AbstractSort {
 
