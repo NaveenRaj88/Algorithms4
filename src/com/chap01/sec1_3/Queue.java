@@ -1,4 +1,6 @@
-package com.chap01;
+package com.chap01.sec1_3;
+
+import com.chap01.Node;
 
 import java.util.Iterator;
 
@@ -34,7 +36,7 @@ public class Queue<Item> implements Iterable<Item> {
 		Node<Item> oldFirst = firstNode;
 		firstNode = firstNode.nextNode;
 		size--;
-		return oldFirst.value;
+		return oldFirst.item;
 	}
 
 	// is the queue empty?
@@ -64,7 +66,7 @@ public class Queue<Item> implements Iterable<Item> {
 
 		@Override
 		public Item next() {
-			Item item = current.value;
+			Item item = current.item;
 			current = current.nextNode;
 			return item;
 		}

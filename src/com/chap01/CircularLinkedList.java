@@ -29,7 +29,7 @@ public class CircularLinkedList<Item> {
 		firstNode = firstNode.nextNode;
 		lastNode.nextNode = firstNode;
 		size--;
-		return oldFirst.value;
+		return oldFirst.item;
 	}
 
 	// is the queue empty?

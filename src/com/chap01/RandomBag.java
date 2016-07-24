@@ -38,7 +38,7 @@ public class RandomBag<Item> implements Iterable<Item>{
 		private int index = 0;
 		public bagIterator() {
 			for (int i = 0; i < size; i++) {
-				items[i] = current.value;
+				items[i] = current.item;
 				current = current.nextNode;
 			}
 			ArrayUtils.randomize(items);

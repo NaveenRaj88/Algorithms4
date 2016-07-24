@@ -1,12 +1,12 @@
 package com.chap01;
 
-public class Node<T> {
+public class Node<Item> {
 
-	public T value;
-	public Node<T> nextNode;
+    public Item item;
+    public Node<Item> nextNode;
 //	public Node prevNode;
-	
-	public Node(T t) {
-		this.value=t;
-	}
+
+    public Node(Item item) {
+        this.item = item;
+    }
 }

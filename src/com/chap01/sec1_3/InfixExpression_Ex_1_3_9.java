@@ -1,6 +1,6 @@
-package com.chap01;
+package com.chap01.sec1_3;
 
-public class InfixExpression {
+public class InfixExpression_Ex_1_3_9 {
 	
 	public void infixExp(String exp) {
 		String[] st = exp.split("");
@@ -40,7 +40,7 @@ public class InfixExpression {
 	}
 
 	public static void main(String[] args) {
-		InfixExpression in = new InfixExpression();
+		InfixExpression_Ex_1_3_9 in = new InfixExpression_Ex_1_3_9();
 		in.infixExp("1 + 2 ) * 3 - 4 ) * 5 - 6 ) ) )");
 
 	}

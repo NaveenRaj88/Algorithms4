@@ -34,7 +34,7 @@ public class RandomQueue<Item> implements Iterable<Item>{
 	public Item dequeue(){
 		int itemNo = random.nextInt(size);
 		Node<Item> node = getNthNode(0, itemNo, firstNode);
-		Item item = node.nextNode.value;
+		Item item = node.nextNode.item;
 		node.nextNode = node.nextNode.nextNode;
 		size--;
 		return item;
@@ -43,7 +43,7 @@ public class RandomQueue<Item> implements Iterable<Item>{
 	public Item sample(){
 		int itemNo = random.nextInt(size);
 		Node<Item> node = getNthNode(0, itemNo, firstNode);
-		return node.nextNode.value;
+		return node.nextNode.item;
 	}
 	
 	private Node<Item> getNthNode(int counter, int n, Node<Item> node){

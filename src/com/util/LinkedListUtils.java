@@ -15,7 +15,7 @@ public class LinkedListUtils {
 	public static <T> boolean find(Node<T> firstNode, T key){
 		Node<T> node = firstNode;
 		while(node!= null){
-			if(node.value == key){
+			if(node.item == key){
 				return true;
 			}
 			node = node.nextNode;
@@ -25,10 +25,10 @@ public class LinkedListUtils {
 	
 	public static int findHighestInteger(Node<Integer> firstNode){
 		Node<Integer> node = firstNode;
-		int highest = node.value;
+		int highest = node.item;
 		while(node != null){
-			if(node.value > highest){
-				highest = node.value;
+			if(node.item > highest){
+				highest = node.item;
 			}
 		}
 		return highest;

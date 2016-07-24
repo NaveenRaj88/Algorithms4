@@ -1,5 +1,6 @@
 package com.chap01;
 
+import com.chap01.sec1_3.Queue;
 import com.util.In;
 
 public class ReadInts {

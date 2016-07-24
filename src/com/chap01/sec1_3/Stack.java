@@ -1,4 +1,6 @@
-package com.chap01;
+package com.chap01.sec1_3;
+
+import com.chap01.Node;
 
 import java.util.Iterator;
 
@@ -14,7 +16,7 @@ public class Stack<Item> implements Iterable<Item> {
 	
 	// add an item
 	public void push(Item t){
-		Node<Item> node = new Node<Item>(t);
+		Node<Item> node = new Node<>(t);
 		if(head == null){
 			head=node;
 		}else{
@@ -25,14 +27,15 @@ public class Stack<Item> implements Iterable<Item> {
 	}
 	
 	public Item peek(){
-		return head.value;
+		return head.item;
 	}
+
 	// remove the most recently added item
 	public Item pop(){
 		Node<Item> temp = head;
 		head=head.nextNode;
 		size--;
-		return temp.value;
+		return temp.item;
 	}
 	
 	// is the stack empty?
@@ -62,7 +65,7 @@ public class Stack<Item> implements Iterable<Item> {
 
 		@Override
 		public Item next() {
-			Item val = current.value;
+			Item val = current.item;
 			current = current.nextNode;
 			return val;
 		}

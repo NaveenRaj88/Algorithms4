@@ -25,7 +25,7 @@ public class Steque<Item> {
 	}
 	
 	public Item pop(){
-		Item item = first.value;
+		Item item = first.item;
 		first = first.nextNode;
 		return item;
 	}

@@ -22,7 +22,7 @@ public class ArrayUtils {
 		T[] array = (T[]) new Object[size];
 		int counter = 0;
 		while (node != null) {
-			array[counter++] = node.value;
+			array[counter++] = node.item;
 		}
 		return array;
 	}
