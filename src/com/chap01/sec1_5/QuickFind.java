@@ -7,7 +7,6 @@ public class QuickFind extends UF {
 
 	public QuickFind(int n) {
 		super(n);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -26,12 +25,11 @@ public class QuickFind extends UF {
 
 	@Override
 	public int find(int p) {
-		// TODO Auto-generated method stub
 		return id[p];
 	}
 
 	public static void main(String[] args) {
-		int[] a = In.readInts("resources/tinyUf.txt");
+		int[] a = new In("resources/mediumUf.txt").readAllInts();
 		int index = 0;
 		QuickFind qf = new QuickFind(a[index++]);
 		while (index < a.length) {

@@ -4,56 +4,51 @@ import com.util.In;
 
 public class WeightedQuickUnion extends UF {
 
-	private int[] sz;
+    private int[] sz;
 
-	public WeightedQuickUnion(int n) {
-		super(n);
-		sz = new int[n];
-		for (int i = 0; i < id.length; i++) {
-			sz[i] = 1;
-		}
-	}
+    public WeightedQuickUnion(int n) {
+        super(n);
+        sz = new int[n];
+        for (int i = 0; i < n; i++) {
+            sz[i] = 1;
+        }
+    }
 
-	@Override
-	public void union(int p, int q) {
-		int i = find(p);
-		int j = find(q);
-		if (i == j) {
-			return;
-		}
+    @Override
+    public void union(int p, int q) {
+        int pRoot = find(p);
+        int qRoot = find(q);
+        if (sz[pRoot] > sz[qRoot]) {
+            id[qRoot] = pRoot;
+            sz[pRoot] += sz[qRoot];
+        } else {
+            id[pRoot] = qRoot;
+            sz[qRoot] += sz[pRoot];
+        }
+        count--;
+    }
 
-		// Make smaller root point to larger root
-		if (sz[i] < sz[j]) {
-			id[i] = j;
-			sz[j] += sz[i];
-		} else {
-			id[j] = i;
-			sz[i] += sz[j];
-		}
-		count--;
-	}
+    @Override
+    public int find(int p) {
+        while (p != id[p]) {
+            p = id[p];
+        }
+        return p;
+    }
 
-	@Override
-	public int find(int p) {
-		while (p != id[p]) {
-			p = id[p];
-		}
-		return p;
-	}
-
-	public static void main(String[] args) {
-		int[] a = In.readInts("resources/tinyUf.txt");
-		int index = 0;
-		WeightedQuickUnion qu = new WeightedQuickUnion(a[index++]);
-		while (index < a.length) {
-			int p = a[index++];
-			int q = a[index++];
-			if (qu.connected(p, q)) {
-				continue;
-			}
-			qu.union(p, q);
-			System.out.println(p + " " + q);
-		}
-		System.out.println(qu.count + " components");
-	}
+    public static void main(String[] args) {
+        int[] a = new In("resources/tinyUf.txt").readAllInts();
+        int index = 0;
+        WeightedQuickUnion qu = new WeightedQuickUnion(a[index++]);
+        while (index < a.length) {
+            int p = a[index++];
+            int q = a[index++];
+            if (qu.connected(p, q)) {
+                continue;
+            }
+            qu.union(p, q);
+            System.out.println(p + " " + q);
+        }
+        System.out.println(qu.count + " components");
+    }
 }
