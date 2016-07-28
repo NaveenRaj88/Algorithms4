@@ -1,4 +1,4 @@
-package com.chap2;
+package com.chap2.sec_2_1;
 
 import com.util.In;
 

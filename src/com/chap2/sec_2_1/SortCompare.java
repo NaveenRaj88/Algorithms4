@@ -1,4 +1,4 @@
-package com.chap2;
+package com.chap2.sec_2_1;
 
 import com.util.StdOut;
 import com.util.StdRandom;
@@ -39,8 +39,8 @@ public class SortCompare {
 		
 	String alg1 = "Selection"; //args[0];
 	String alg2 = "Insertion"; //args[1];
-	int N = 1000;
-	int T = 1000;
+	int N = 5000;
+	int T = 5000;
 	double t1 = timeRandomInput(alg1, N, T); // total for alg1
 	double t2 = timeRandomInput(alg2, N, T); // total for alg2
 	StdOut.printf("For %d random Doubles\n %s is", N, alg1);
