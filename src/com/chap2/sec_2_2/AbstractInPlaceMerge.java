@@ -8,8 +8,8 @@ import java.util.Arrays;
  * Created by Naveen on 29-07-2016.
  */
 public class AbstractInPlaceMerge {
-    protected static Comparable[] aux;
-    public static void merge(Comparable[] a, int low, int mid, int high) {
+    public  Comparable[] aux;
+    public  void merge(Comparable[] a, int low, int mid, int high) {
        int i = low;
         int j = mid+1;
 
@@ -31,8 +31,9 @@ public class AbstractInPlaceMerge {
 
     public static void main(String[] args) {
         Comparable[] a = {"E", "E", "G", "M", "R", "A", "C", "E", "R", "T"};
-        aux =new Comparable[a.length];
-        merge(a, 0, (a.length/2)-1, a.length-1);
+        AbstractInPlaceMerge ab = new AbstractInPlaceMerge();
+        ab.aux =new Comparable[a.length];
+        ab.merge(a, 0, (a.length/2)-1, a.length-1);
         System.out.println(Arrays.toString(a));
     }
 }
