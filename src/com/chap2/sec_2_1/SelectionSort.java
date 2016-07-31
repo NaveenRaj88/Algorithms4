@@ -22,8 +22,9 @@ public class SelectionSort extends AbstractSort {
         String fileName = "resources/words3.txt";
         In in = new In(fileName);
         Comparable[] s = in.readAllStrings();
+        s= "A, E, E, E, E, G, L, N, N, O, P, R, R, S, T, X".split(", ");
         new SelectionSort().sort(s);
-        assert isSorted(s);
+        System.out.println("is sorted "+isSorted(s));
         show(s);
 
     }

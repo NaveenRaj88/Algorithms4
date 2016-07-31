@@ -17,7 +17,7 @@ public class Queue<Item> implements Iterable<Item> {
 
 	// add an item
 	public void enqueue(Item item) {
-		Node<Item> node = new Node<Item>(item);
+		Node<Item> node = new Node<>(item);
 		if (size == 0) {
 			lastNode = node;
 			firstNode = lastNode;
@@ -61,7 +61,7 @@ public class Queue<Item> implements Iterable<Item> {
 
 		@Override
 		public boolean hasNext() {
-			return firstNode != null;
+			return current != null;
 		}
 
 		@Override
