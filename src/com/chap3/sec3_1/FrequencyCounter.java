@@ -8,9 +8,9 @@ import com.util.In;
 public class FrequencyCounter {
 
     public static void main(String[] args) {
-        int minLength = 8;
+        int minLength = 10;
         SequentialSearchST<String, Integer> st = new SequentialSearchST();
-        In in = new In("/resources/tinyTale.txt");
+        In in = new In("resources/leipzig1M.txt");
         String[] strings = in.readAllStrings();
         for (String s : strings){
             if(s.length() < minLength){
@@ -25,8 +25,13 @@ public class FrequencyCounter {
 
         // Find max words
         int max =0;
+        String maxStr= null;
         for(String str : st.keys()){
-
+            if(st.get(str)>max){
+                maxStr = str;
+                max= st.get(str);
+            }
         }
+        System.out.println(maxStr +" "+st.get(maxStr));
     }
 }
