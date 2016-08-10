@@ -1,5 +1,7 @@
 package com.chap3.sec3_1;
 
+import com.chap01.sec1_3.Queue;
+
 /**
  * Created by Naveen on 08-08-2016.
  */
@@ -21,6 +23,23 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
     public boolean isEmpty(){
         return n==0;
+    }
+
+    public Key min(){
+        return keys[0];
+    }
+
+    public Key max(){
+        return keys[n-1];
+    }
+
+    public Key select(int k){
+        return keys[k];
+    }
+
+    public boolean contains(Key key){
+        int i = rank(key);
+        return key.compareTo(keys[i]) ==0;
     }
 
     public Value get(Key key){
@@ -52,6 +71,29 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     public int rank(Key key){
         return rank(key, 0, n);
     }
+
+    public Key ceiling(Key key){
+       int i = rank(key);
+        return keys[i];
+    }
+
+    public Key floor(Key key){
+        int i = rank(key);
+        return keys[i];
+    }
+
+
+    public Iterable<Key> keys(Key low, Key high){
+        Queue<Key> q = new Queue<>();
+        for (int i = rank(low); i < rank(high); i++) {
+            q.enqueue(keys[i]);
+        }
+        if(contains(high)){
+            q.enqueue(high);
+        }
+        return q;
+    }
+
     private int rank(Key key, int low, int high){
         if(high < low){
             return low;
