@@ -1,5 +1,6 @@
 package com.chap3.sec3_1;
 
+import com.chap3.sec3_2.BinarySearchTrees;
 import com.util.In;
 
 /**
@@ -9,7 +10,8 @@ public class FrequencyCounter {
 
     public static void main(String[] args) {
         int minLength = 10;
-        SequentialSearchST<String, Integer> st = new SequentialSearchST();
+//        SequentialSearchST<String, Integer> st = new SequentialSearchST();
+        BinarySearchTrees<String, Integer> st = new BinarySearchTrees<>();
         In in = new In("resources/leipzig1M.txt");
         String[] strings = in.readAllStrings();
         for (String s : strings){
