@@ -1,4 +1,4 @@
-package com.graphs;
+package com.chap04;
 
 public class GraphAlgorithms {
 	
