@@ -38,7 +38,7 @@ public class Bag<Item> implements Iterable<Item> {
 
         @Override
         public boolean hasNext() {
-            return head.nextNode != null;
+            return firstNode != null;
         }
 
         @Override
