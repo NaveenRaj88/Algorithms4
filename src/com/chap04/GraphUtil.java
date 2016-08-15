@@ -1,9 +1,9 @@
 package com.chap04;
 
 /**
- * Created by Naveen Kumar .A on 8/13/16.
+ * Created by Naveen Kumar .A on 8/14/16.
  */
-public class Search {
+public class GraphUtil {
 
     public static int degree(Graph g, int v) {
         int degree = 0;
