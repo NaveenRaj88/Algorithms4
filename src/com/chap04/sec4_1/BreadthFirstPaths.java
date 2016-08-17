@@ -1,4 +1,4 @@
-package com.chap04;
+package com.chap04.sec4_1;
 
 import com.chap01.sec1_3.Queue;
 import com.chap01.sec1_3.Stack;
