@@ -33,7 +33,7 @@ public class DirectedCycle {
                 edgeTo[w] = v;
                 dfs(g, w);
             }else if(onStack[w]){
-
+                cycle = new Stack<>();
             }
 
         }
