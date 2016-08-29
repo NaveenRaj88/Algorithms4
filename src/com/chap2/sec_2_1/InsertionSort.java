@@ -15,6 +15,10 @@ public class InsertionSort extends AbstractSort {
         }
     }
 
+    public static void sortArray(Comparable[] a){
+        new InsertionSort().sort(a);
+    }
+
     public static void main(String[] args) {
         String fileName = "resources/words3.txt";
         In in = new In(fileName);
