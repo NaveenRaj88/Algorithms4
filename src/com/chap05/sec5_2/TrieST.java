@@ -47,4 +47,21 @@ public class TrieST<Value> {
         return root;
     }
 
+    public int size(){
+        return size(root);
+    }
+
+    private int size(Node root){
+        if(root == null){
+            return 0;
+        }
+        int count =0;
+        if(root.value != null){
+            count++;
+        }
+        for(char c=0; c<r; c++){
+            count+=size(root.next[c]);
+        }
+        return count;
+    }
 }
