@@ -1,9 +1,7 @@
-package com.chap01.sec1_5;
 
-import com.util.StdOut;
-import com.util.StdRandom;
-import com.util.StdStats;
-
+import edu.princeton.cs.algs4.StdStats;
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.StdOut;
 /**
  * Created by Naveen Kumar .A on 9/6/16.
  */
@@ -18,9 +16,10 @@ public class PercolationStats {
         if(n<=0 || trials <=0){
             throw  new IllegalArgumentException("illegal grid size or trial size");
         }
-
-        this.t = t;
-        int randx=0,randy=0;
+        threshold = new double[trials];
+        this.t = trials;
+        int randx = 0;
+        int randy = 0;
         for (int i = 0; i <t; i++) {
             percolation = new Percolation(n);
             while(!percolation.percolates()) {
@@ -56,7 +55,7 @@ public class PercolationStats {
         N = Integer.parseInt(args[1]);
         PercolationStats percolationStats = new PercolationStats(T, N);
 
-//Instead of StdOut.println() function, you can use your own output format
+        //Instead of StdOut.println() function, you can use your own output format
         StdOut.println("%Java PercolationStats " + T + " " + N);
         StdOut.println("Mean "+percolationStats.mean());
         StdOut.println("stddev " + percolationStats.stddev());

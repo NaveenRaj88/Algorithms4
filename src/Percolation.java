@@ -1,4 +1,5 @@
-package com.chap01.sec1_5;
+
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 /**
  * Created by Naveen Kumar .A on 9/4/16.
@@ -31,13 +32,10 @@ public class Percolation {
 
     public void open(int i, int j){
         int x = i-1, y=j-1;
-        if(!isValid(x,y)){
-            throw new  IndexOutOfBoundsException("invalid grid range");
-        }
         gridStatus[x][y] = 1;
         for (int k = x-1; k <=x+1 ; k+=2) {
             if (isValid(k, y)) {
-                if (isOpen(k, y + 1)) {
+                if (isOpen(k+1, y + 1)) {
                     quickUnionUF.union((k * n) + (y + 1), (x * n) + j);
                 }
             }
@@ -54,7 +52,7 @@ public class Percolation {
 
     public boolean isOpen(int i, int j){
         if(!isValid(i-1,j-1)){
-            throw new  IndexOutOfBoundsException("invalid grid range");
+            throw new  IndexOutOfBoundsException("invalid grid range isOpen");
         }
         return gridStatus[i-1][j-1] ==1;
     }
@@ -64,7 +62,7 @@ public class Percolation {
             throw new  IndexOutOfBoundsException("invalid grid range");
         }
         if(quickUnionUF.connected(((i-1)*n)+j, 0)){
-            return gridStatus[i][j] == 1;
+            return gridStatus[i-1][j-1] == 1;
         }else{
             return false;
         }
