@@ -4,6 +4,16 @@ import com.util.In;
 
 public class InsertionSort extends AbstractSort {
 
+
+    public static void sort1(Comparable[] a){
+        int n = a.length;
+        for (int i = 1; i <n ; i++) {
+            for (int j = i-1; j >= 0 && less( a[j+1], a[j]) ; j--) {
+                exch(a, j, j+1);
+            }
+        }
+    }
+
     @Override
     public void sort(Comparable[] a) {
         for (int i = 1; i < a.length; i++) {
@@ -24,7 +34,8 @@ public class InsertionSort extends AbstractSort {
         In in = new In(fileName);
         Comparable[] s = in.readAllStrings();
         show(s);
-        new InsertionSort().sort(s);
+//        new InsertionSort().sort(s);
+        sort1(s);
         System.out.println(isSorted(s));
         show(s);
     }
