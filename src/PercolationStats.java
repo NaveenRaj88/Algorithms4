@@ -1,67 +1,86 @@
-
-import edu.princeton.cs.algs4.StdStats;
-import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.StdStats;
+
 /**
  * Created by Naveen Kumar .A on 9/6/16.
  */
 public class PercolationStats {
 
-    private Percolation percolation;
-    private int openSites;
-    private int t;
-    private double[] threshold;
+    private double recT[];
+    private double res_mean;
+    private double res_stddev;
+    private int N;
 
-    public PercolationStats(int n, int trials){
-        if(n<=0 || trials <=0){
-            throw  new IllegalArgumentException("illegal grid size or trial size");
+    // perform T independent computational experiments on an N-by-N grid
+    public PercolationStats(int N, int T) {
+        recT = new double[T];
+        this.N = N;
+
+        int times = 0;
+        if (N <= 0) {
+            throw new IllegalArgumentException();
         }
-        threshold = new double[trials];
-        this.t = trials;
-        int randx = 0;
-        int randy = 0;
-        for (int i = 0; i <t; i++) {
-            percolation = new Percolation(n);
-            while(!percolation.percolates()) {
-                randx = StdRandom.uniform(1, n + 1);
-                randy = StdRandom.uniform(1, n + 1);
-                if (!percolation.isOpen(randx, randy)) {
-                    percolation.open(randx, randy);
-                    openSites++;
+        if (T <= 0) {
+            throw new IllegalArgumentException();
+        }
+        while (times < T) {
+            Percolation percolation = new Percolation(N);
+            boolean[][] arrOpen = new boolean[N + 1][N + 1];
+            int count = 0;
+            while (true) {
+                count++;
+                while (true) {
+                    int x = StdRandom.uniform(N) + 1;
+                    int y = StdRandom.uniform(N) + 1;
+                    if (arrOpen[x][y]) {
+                        continue;
+                    } else {
+                        percolation.open(x, y);
+                        arrOpen[x][y] = true;
+                        break;
+                    }
+                }
+                if (percolation.percolates()) {
+                    recT[times] = (double) count / ((double) N * (double) N);
+                    break;
                 }
             }
-            threshold[i] = openSites/(n*n);
+            times++;
         }
+        this.res_mean = StdStats.mean(recT);
+        this.res_stddev = StdStats.stddev(recT);
     }
 
-
-    public double mean(){
-        return StdStats.mean(threshold);
+    // sample mean of percolation threshold
+    public double mean() {
+        return this.res_mean;
     }
 
+    // sample standard deviation of percolation threshold
     public double stddev() {
-        return StdStats.stddev(threshold);
+        return this.res_stddev;
     }
+
+    // returns lower bound of the 95% confidence interval
     public double confidenceLo() {
-        return mean() - (1.96*stddev())/Math.sqrt(t);
+        return this.res_mean - 1.96 * this.res_stddev / Math.sqrt(N);
     }
+
+    // returns upper bound of the 95% confidence interval
     public double confidenceHi() {
-        return mean() + (1.96*stddev())/Math.sqrt(t);
+        return this.res_mean + 1.96 * this.res_stddev / Math.sqrt(N);
     }
 
+    // test client, described below
     public static void main(String[] args) {
-        int T, N;
-        T = Integer.parseInt(args[0]);
-        N = Integer.parseInt(args[1]);
-        PercolationStats percolationStats = new PercolationStats(T, N);
-
-        //Instead of StdOut.println() function, you can use your own output format
-        StdOut.println("%Java PercolationStats " + T + " " + N);
-        StdOut.println("Mean "+percolationStats.mean());
-        StdOut.println("stddev " + percolationStats.stddev());
-        StdOut.println("95% confidence interval = "+ percolationStats.confidenceLo()
-                + ", " + percolationStats.confidenceHi());
-
+        int N = StdIn.readInt();
+        int T = StdIn.readInt();
+        PercolationStats percolationStats = new PercolationStats(N, T);
+        StdOut.println("mean = " + percolationStats.mean());
+        StdOut.println("stddev = " + percolationStats.stddev());
+        StdOut.println("95% confidence interval " + percolationStats.confidenceLo() + ", " + percolationStats.confidenceHi());
     }
 }
 
