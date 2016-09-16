@@ -18,8 +18,15 @@ public class BruteCollinearPoints {
         Arrays.sort(points);
         int n = points.length;
         for (int i = 0; i < n; i++) {
-            for (int j = i+1; j < n; j++) {
-
+            for (int j = i + 1; j < n; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    for (int l = k + 1; l < n; l++) {
+                        double slope = points[i].slopeTo(points[j]);
+                        if (slope == points[i].slopeTo(points[k]) && slope == points[i].slopeTo(points[l])) {
+                            lineSegments.add(new LineSegment(points[i], points[l]));
+                        }
+                    }
+                }
             }
 
         }
@@ -32,10 +39,10 @@ public class BruteCollinearPoints {
     public LineSegment[] segments() {
         int size = lineSegments.size();
         LineSegment[] lineSeg = new LineSegment[size];
-        return  lineSegments.toArray(lineSeg);
+        return lineSegments.toArray(lineSeg);
     }
 
-    private  void checkNullOrDuplicates(Point[] points) {
+    private void checkNullOrDuplicates(Point[] points) {
         for (int i = 0; i < points.length; i++) {
             for (int j = i + 1; j < points.length; j++) {
                 if (points[i] == null || points[j] == null) {
