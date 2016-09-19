@@ -7,6 +7,13 @@
  * <p>
  * An immutable data type for points in the plane.
  * For use on Coursera, Algorithms Part I programming assignment.
+ * <p>
+ * Compilation:  javac Point.java
+ * Execution:    java Point
+ * Dependencies: none
+ * <p>
+ * An immutable data type for points in the plane.
+ * For use on Coursera, Algorithms Part I programming assignment.
  ******************************************************************************/
 /******************************************************************************
  *  Compilation:  javac Point.java
@@ -18,9 +25,9 @@
  *
  ******************************************************************************/
 
-import java.util.Comparator;
-
 import edu.princeton.cs.algs4.StdDraw;
+
+import java.util.Comparator;
 
 public class Point implements Comparable<Point> {
 
@@ -70,18 +77,18 @@ public class Point implements Comparable<Point> {
      * @return the slope between this point and the specified point
      */
     public double slopeTo(Point that) {
-        if(this.x == that.x && this.y == that.y){
+        if (this.x == that.x && this.y == that.y) {
             return Double.NEGATIVE_INFINITY;
         }
-        double deltaY = that.y-this.y;
-        double deltaX = that.x-this.x;
-        if(deltaY ==0){
+        double deltaY = that.y - this.y;
+        double deltaX = that.x - this.x;
+        if (deltaY == 0) {
             return 0.0;
         }
-        if(deltaX == 0){
+        if (deltaX == 0) {
             return Double.POSITIVE_INFINITY;
         }
-        return deltaY/deltaX;
+        return deltaY / deltaX;
     }
 
     /**
@@ -97,15 +104,15 @@ public class Point implements Comparable<Point> {
      * argument point
      */
     public int compareTo(Point that) {
-        if(this.y < that.y){
+        if (this.y < that.y) {
             return -1;
         }
-        if(this.y > that.y){
+        if (this.y > that.y) {
             return 1;
         }
-        if(this.x < that.x) {
+        if (this.x < that.x) {
             return -1;
-        }else if(this.x > that.x) {
+        } else if (this.x > that.x) {
             return 1;
         }
         return 0;
@@ -123,9 +130,9 @@ public class Point implements Comparable<Point> {
             public int compare(Point p1, Point p2) {
                 double slopeA = slopeTo(p1);
                 double slopeB = slopeTo(p2);
-                if(slopeA > slopeB){
+                if (slopeA > slopeB) {
                     return 1;
-                }else if(slopeA < slopeB){
+                } else if (slopeA < slopeB) {
                     return -1;
                 }
                 return 0;
@@ -145,29 +152,6 @@ public class Point implements Comparable<Point> {
         /* DO NOT MODIFY */
         return "(" + x + ", " + y + ")";
     }
-
-    /**
-     * You should not call the hashCode() method on this assignment.
-     * This means that you should not use java.util.HashMap or java.util.HashSet.
-     *
-     * @return a string representation of this point
-     */
-    public int hashCode() {
-        /* DO NOT MODIFY */
-        throw new UnsupportedOperationException("calling hashCode() is not permitted on this assignment");
-    }
-
-    /**
-     * You should not call the equals() method on this assignment.
-     * This means that you should not use java.util.TreeMap or java.util.TreeSet.
-     */
-    public boolean equals(Object that) {
-     /* DO NOT MODIFY */
-        throw new
-
-                UnsupportedOperationException("calling equals() is not permitted on this assignment");
-    }
-
 
     /**
      * Unit tests the Point data type.
