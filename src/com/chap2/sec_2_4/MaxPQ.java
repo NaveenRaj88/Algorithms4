@@ -36,21 +36,22 @@ public class MaxPQ<Key extends Comparable<Key>> {
         return v;
     }
 
-    public void swim(int k) {
-        while (k > 1 && AbstractSort.less(k / 2, k)) {
-            AbstractSort.exch(pq, k / 2, k);
-            k = k / 2;
+    public void swim(int k){
+        while(k>1 && AbstractSort.less(pq[k/2], pq[k])){
+            AbstractSort.exch(pq, k,k/2);
+            k=k/2;
         }
-
     }
 
     public void sink(int k){
-        int j =2*k;
-        while(j<size && AbstractSort.less(k, j)){
-            if(AbstractSort.less(j,j+1)){
+        while(size >= 2*k){
+            int j = 2*k;
+            if(j<size && AbstractSort.less(pq[j], pq[j+1])){
                 j++;
+            }else if(AbstractSort.less(pq[j], pq[k])){
+                break;
             }
-            AbstractSort.exch(pq, k, j);
+            AbstractSort.exch(pq, k,j);
             k=j;
         }
     }

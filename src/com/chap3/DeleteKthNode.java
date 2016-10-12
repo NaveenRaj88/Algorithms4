@@ -15,7 +15,12 @@ public class DeleteKthNode<Item> extends Stack<Item> {
 //	}
 	
 	public static void main(String[] args) {
-		
+		double a = 1.0123456789012345678901234567890;
+		double b = 1.0123456789012345678901234567890;
+		System.out.println(a==b);
+		Double x = a;
+		Double y = b;
+		System.out.println(x.equals(y));
 	}
 	
 }
