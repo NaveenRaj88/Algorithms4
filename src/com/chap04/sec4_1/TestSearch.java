@@ -8,7 +8,7 @@ import com.util.In;
 public class TestSearch {
 
     public static void main(String[] args) {
-        In in = new In("");
+        In in = new In("resources/tinyG.txt");
         Graph g = new Graph(in);
         int s = 0;
 

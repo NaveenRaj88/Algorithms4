@@ -8,26 +8,26 @@ public class DepthFirstSearch {
     private boolean[] marked;
     private int count;
 
-    DepthFirstSearch(Graph g, int s){
+    DepthFirstSearch(Graph g, int s) {
         marked = new boolean[g.v()];
-        dfs(g,s);
+        dfs(g, s);
     }
 
-    private void dfs(Graph g, int v){
-        marked[v] = true;
+    private void dfs(Graph g, int s) {
+        marked[s] = true;
         count++;
-        for (int i: g.adj(v)){
-            if(!marked(i)){
-                dfs(g,i);
+        for (int i : g.adj(s)) {
+            if (!marked[i]) {
+                dfs(g, i);
             }
         }
     }
 
-    public boolean marked(int v){
+    public boolean marked(int v) {
         return marked[v];
     }
 
-    public int count(){
+    public int count() {
         return count;
     }
 }
