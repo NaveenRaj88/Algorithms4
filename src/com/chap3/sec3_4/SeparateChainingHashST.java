@@ -11,28 +11,34 @@ public class SeparateChainingHashST<Key, Value> {
     private int m;
     private SequentialSearchST<Key, Value>[] st;
 
-    public SeparateChainingHashST(){
+    public SeparateChainingHashST() {
         this(997);
     }
 
-    public SeparateChainingHashST(int m){
+    public SeparateChainingHashST(int m) {
         this.m = m;
-        st =(SequentialSearchST<Key, Value>[]) new SequentialSearchST[m];
-        for (int i = 0; i <m ; i++) {
+        st = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[m];
+        for (int i = 0; i < m; i++) {
             st[i] = new SequentialSearchST<Key, Value>();
         }
     }
 
-    private int hash(Key key){
+    private int hash(Key key) {
         return (key.hashCode() & 0x7fffffff) % m;
     }
 
-    public Value get(Key key){
+    public Value get(Key key) {
         return st[hash(key)].get(key);
     }
 
-    public void put(Key key, Value value){
-        st[hash(key)].put(key,value);
+    public void put(Key key, Value value) {
+        st[hash(key)].put(key, value);
     }
 
+    public boolean contains(Key key) {
+        if (key == null) {
+            return false;
+        }
+        return get(key) != null;
+    }
 }

@@ -13,7 +13,7 @@ public class DepthFirstPaths {
 
     private int s;
 
-    public DepthFirstPaths(Graph g, int s) {
+    public DepthFirstPaths(Graph g,  int s) {
         marked = new boolean[g.v()];
         edgeTo = new int[g.v()];
         this.s = s;

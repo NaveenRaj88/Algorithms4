@@ -1,6 +1,7 @@
 package com.chap04.sec4_2;
 
 import com.chap01.sec1_3.Stack;
+import edu.princeton.cs.algs4.Digraph;
 
 /**
  * Created by Naveen Kumar .A on 8/20/16.
@@ -12,38 +13,45 @@ public class DirectedCycle {
     private Stack<Integer> cycle;
     private boolean[] onStack;
 
-    public DirectedCycle(DiGraph g){
-        onStack = new boolean[g.v()];
-        marked  = new boolean[g.v()];
+    public DirectedCycle(DiGraph g) {
+        marked = new boolean[g.v()];
         edgeTo = new int[g.v()];
-        for (int i = 0; i <g.v() ; i++) {
-            if(!marked[i]){
-                dfs(g,i);
+        onStack = new boolean[g.v()];
+        for (int i = 0; i < g.v(); i++) {
+            if (!marked[i]) {
+
             }
         }
     }
 
-    public void dfs(DiGraph g, int v){
-        onStack[v] = true;
+    private void dfs(Digraph g, int v) {
         marked[v] = true;
-        for (int w : g.adj(v)){
-            if(this.hasCycle()){
+        onStack[v] = true;
+        for (int w : g.adj(v)) {
+            if (this.hasCycle()) {
                 return;
-            }else if(! marked[w]){
+            } else if (!marked[w]) {
                 edgeTo[w] = v;
                 dfs(g, w);
-            }else if(onStack[w]){
+            } else if (onStack[w]) {
                 cycle = new Stack<>();
+                for (int i = v; i != w; i = edgeTo[i]) {
+                    cycle.push(i);
+                }
+                cycle.push(w);
+                cycle.push(v);
             }
-
+            onStack[v] = false;
         }
     }
 
-    public boolean hasCycle(){
+    public boolean hasCycle() {
         return cycle != null;
     }
 
-    public Iterable<Integer> cycle(){
+    public Iterable<Integer> cycle() {
         return cycle;
     }
 }
+
+

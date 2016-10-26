@@ -12,7 +12,7 @@ public class ConnectedComponentsClient {
 
         In in = new In("resources/tinyG.txt");
         Graph g = new Graph(in);
-        ConnectedComponents cc = new ConnectedComponents(g);
+        DFSConComp cc = new DFSConComp(g);
         int m = cc.count();
         System.out.println(m +" components");
         Bag<Integer>[] components = (Bag<Integer>[]) new Bag[m];
