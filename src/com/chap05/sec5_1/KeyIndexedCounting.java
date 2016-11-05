@@ -1,5 +1,7 @@
 package com.chap05.sec5_1;
 
+import java.util.Arrays;
+
 /**
  * Created by Naveen Kumar .A on 8/26/16.
  */
@@ -7,23 +9,27 @@ public class KeyIndexedCounting {
 
 
     public static void sort(School[] sk){
-        int[] count = new int[6];
-        for (int i = 0; i <sk.length ; i++) {
+        int r = 5;
+        int n = sk. length;
+        int[] count = new int[r+1];
+        School[] aux = new School[n];
+        
+        //compute the frequencies
+        for (int i = 0; i < n; i++) {
             count[sk[i].key+1]++;
         }
-        for (int i = 0; i <count.length-1 ; i++) {
+        // transform count to indices
+        for (int i = 0; i <r ; i++) {
             count[i+1] += count[i];
         }
-        School[] aux = new School[sk.length];
-        for (int i = 0; i <sk.length ; i++) {
+        // Distribute the records
+        for (int i = 0; i < n; i++) {
             aux[count[sk[i].key]++] = sk[i];
         }
-        for (int i = 0; i <aux.length ; i++) {
-            sk[i] = aux[i];
-        }
 
-        for (School s : sk){
-            System.out.println(s.name+" "+s.key);
+        // copy back the records
+        for (int i = 0; i < n; i++) {
+            sk[i]= aux[i];
         }
     }
 
@@ -37,6 +43,7 @@ public class KeyIndexedCounting {
         sc[5] = new School("Jackson" ,3);
         sc[6] = new School("Johnson" ,4);
         sort(sc);
+        System.out.println(Arrays.toString(sc));
     }
 
     private static class School{
@@ -46,6 +53,11 @@ public class KeyIndexedCounting {
         public School(String name, int key) {
             this.name = name;
             this.key = key;
+        }
+
+        @Override
+        public String toString() {
+            return name +"->"+key;
         }
     }
 }
