@@ -7,18 +7,17 @@ import java.util.Stack;
  */
 public class BruteForceSubStringSearch {
 
-    public static int search(String pat, String text){
+    public static int search(String pat, String text) {
         int m = pat.length();
-        int n= text.length();
-
-        for (int i = 0; i <= n-m ; i++) {
+        int n = text.length();
+        for (int i = 0; i <=n-m ; i++) {
             int j;
             for (j = 0; j <m ; j++) {
-                if(text.charAt(i+j) != pat.charAt(j)){
+                if(pat.charAt(j) != text.charAt(i+j)){
                     break;
                 }
             }
-            if(j ==m){
+            if(j == m){
                 return i;
             }
         }
