@@ -1,6 +1,9 @@
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdOut;
+import com.util.In;
+import com.util.StdDraw;
+import com.util.StdOut;
+//import edu.princeton.cs.algs4.In;
+//import edu.princeton.cs.algs4.StdDraw;
+//import edu.princeton.cs.algs4.StdOut;
 
 /**
  * Created by Naveen Kumar .A on 9/15/16.
@@ -20,7 +23,7 @@ public class TestCollinearPoints {
         }
 
         // draw the points
-        StdDraw.enableDoubleBuffering();
+//        StdDraw.enableDoubleBuffering();
         StdDraw.setXscale(0, 32768);
         StdDraw.setYscale(0, 32768);
         for (Point p : points) {

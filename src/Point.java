@@ -25,7 +25,7 @@
  *
  ******************************************************************************/
 
-import edu.princeton.cs.algs4.StdDraw;
+import com.util.StdDraw;
 
 import java.util.Comparator;
 

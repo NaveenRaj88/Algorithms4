@@ -1,6 +1,4 @@
-import edu.princeton.cs.algs4.StdIn;
-
-import java.util.Scanner;
+import com.util.StdIn;
 
 /**
  * Created by Naveen Kumar .A on 9/6/16.

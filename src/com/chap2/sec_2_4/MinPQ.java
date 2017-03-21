@@ -1,8 +1,10 @@
 package com.chap2.sec_2_4;
 
 import com.chap2.sec_2_1.AbstractSort;
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
+import com.util.StdIn;
+import com.util.StdOut;
+//import edu.princeton.cs.algs4.StdIn;
+//import edu.princeton.cs.algs4.StdOut;
 
 /**
  * Created by Naveen Kumar .A on 8/1/16.

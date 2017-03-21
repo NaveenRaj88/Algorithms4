@@ -1,5 +1,4 @@
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdOut;
+import com.util.In;
 
 /**
  * Created by Naveen Kumar .A on 10/10/16.

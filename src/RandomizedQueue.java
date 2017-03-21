@@ -1,4 +1,5 @@
-import edu.princeton.cs.algs4.StdRandom;
+
+import com.util.StdRandom;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

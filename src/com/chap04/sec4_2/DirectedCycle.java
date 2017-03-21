@@ -1,7 +1,6 @@
 package com.chap04.sec4_2;
 
 import com.chap01.sec1_3.Stack;
-import edu.princeton.cs.algs4.Digraph;
 
 /**
  * Created by Naveen Kumar .A on 8/20/16.
@@ -24,7 +23,7 @@ public class DirectedCycle {
         }
     }
 
-    private void dfs(Digraph g, int v) {
+    private void dfs(DiGraph g, int v) {
         marked[v] = true;
         onStack[v] = true;
         for (int w : g.adj(v)) {

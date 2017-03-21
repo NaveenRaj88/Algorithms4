@@ -1,7 +1,6 @@
 package com.chap04.sec4_3;
 
 import com.util.In;
-import edu.princeton.cs.algs4.StdOut;
 
 /**
  * Created by Naveen Kumar .A on 10/27/16.
