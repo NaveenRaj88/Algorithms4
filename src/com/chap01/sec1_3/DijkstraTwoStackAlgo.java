@@ -1,5 +1,6 @@
 package com.chap01.sec1_3;
 
+
 import java.util.Stack;
 
 /**
@@ -13,27 +14,28 @@ public class DijkstraTwoStackAlgo {
         for (String str : expr.split(" ")) {
             if (str.equals("(")) {
                 continue;
-            }else
-            if (str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/") || str.equals("sqrt")) {
+            } else if (str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/") || str.equals("sqrt")) {
                 operatorStack.push(str);
-            } else if(str.equals(")")){
-                switch(operatorStack.pop()){
+            } else if (str.equals(")")) {
+                String operator = operatorStack.pop();
+                double val = operandStack.pop();
+                switch (operator) {
                     case "+":
-                        operandStack.push(operandStack.pop()+operandStack.pop());
+                        operandStack.push(operandStack.pop() + val);
                         break;
                     case "-":
-                        operandStack.push(operandStack.pop()- operandStack.pop());
+                        operandStack.push(operandStack.pop() - val);
                         break;
                     case "*":
-                        operandStack.push(operandStack.pop() * operandStack.pop());
+                        operandStack.push(operandStack.pop() * val);
                         break;
                     case "/":
-                        operandStack.push(operandStack.pop()/operandStack.pop());
+                        operandStack.push(operandStack.pop() / val);
                         break;
                     case "sqrt":
-                        operandStack.push(Math.sqrt(operandStack.pop()));
+                        operandStack.push(Math.sqrt(val));
                 }
-            }else{
+            } else {
                 operandStack.push(Double.parseDouble(str));
             }
 
@@ -43,5 +45,6 @@ public class DijkstraTwoStackAlgo {
 
     public static void main(String[] args) {
         evaluate("( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )");
+        evaluate("( ( 1 + sqrt ( 5.0 ) ) / 2.0 )");
     }
 }
