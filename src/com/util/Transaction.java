@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by Naveen Kumar .A on 8/1/16.
  */
-public class Transaction {
+public  class  Transaction <T> implements Comparable<T> {
 
     private final String who;      // customer
     private final Date when;     // date
@@ -127,6 +127,11 @@ public class Transaction {
         hash = 31 * hash + ((Double) amount).hashCode();
         return hash;
         // return Objects.hash(who, when, amount);
+    }
+
+    @Override
+    public int compareTo(T o) {
+        return 0;
     }
 
     /**

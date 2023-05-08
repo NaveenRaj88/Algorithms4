@@ -1,102 +1,61 @@
 package com.chap3.sec3_1;
 
 
-import java.util.Iterator;
-
-/**
- * Created by Naveen Kumar .A on 8/8/16.
- */
 public class SequentialSearchST<Key, Value> {
 
-    private Node first;
+    public Node first;
+    public int size;
 
-    private int size = 0;
-
-    private class Node {
+    public class Node {
         Key key;
-        Value value;
-        Node nextNode;
+        Value val;
+        Node next;
 
-        Node(Key key, Value value, Node next) {
+        public Node(Key key, Value val, Node next) {
             this.key = key;
-            this.value = value;
-            this.nextNode = next;
+            this.val = val;
+            this.next = next;
         }
     }
 
     public Value get(Key key) {
-        Node current = first;
-        while (current != null) {
-            if (key.equals(current.key)) {
-                return current.value;
+        for (Node f = first; f != null; f = f.next) {
+            if (first.key.equals(key)) {
+                return f.val;
             }
-            current = current.nextNode;
         }
         return null;
     }
 
-    public void put(Key key, Value value) {
-        Node current = first;
-        while (current != null) {
-            if (key.equals(current.key)) {
-                current.value = value;
+    public void put(Key key, Value val) {
+        for (Node f = first; f != null; f = f.next) {
+            if (f.key.equals(key)) {
+                f.val = val;
                 return;
             }
-            current = current.nextNode;
         }
-        first = new Node(key, value, first);
+        first = new Node(key, val, first);
         size++;
-    }
-
-    public void delete(Key key) {
-        Node previousNode = null;
-        Node current = first;
-        while (current != null) {
-            if (current.key.equals(key)) {
-                if (previousNode == null) {
-                    first = current.nextNode;
-                } else {
-                    previousNode.nextNode = current.nextNode;
-                }
-                size--;
-                return;
-            }
-            previousNode = current;
-            current = current.nextNode;
-        }
-    }
-
-    public boolean contains(Key key) {
-        return get(key) != null;
     }
 
     public int size() {
         return size;
     }
 
-    public Iterable<Key> keys() {
-        return new Iterable<Key>() {
-            @Override
-            public Iterator<Key> iterator() {
-                return new Iterator<Key>() {
-                    private Node current = first;
-
-                    @Override
-                    public boolean hasNext() {
-                        return current != null;
-                    }
-
-                    @Override
-                    public Key next() {
-                        Key key = current.key;
-                        current = current.nextNode;
-                        return key;
-
-                    }
-                };
+    public void delete(Key key) {
+        Node node = first;
+        if (node.key.equals(key)) {
+            first = first.next;
+            size--;
+            return;
+        }
+        while (node.next != null) {
+            if (node.next.key.equals(key)) {
+                node.next = node.next.next;
+                size--;
+                break;
             }
-        };
-
+            node = node.next;
+        }
     }
-
 }

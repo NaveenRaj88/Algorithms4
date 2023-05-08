@@ -1,58 +1,56 @@
 package com.chap2.sec_2_4;
 
-import com.chap2.sec_2_1.AbstractSort;
+public class MaxPQ<key extends Comparable<key>> {
 
-/**
- * Created by Naveen Kumar .A on 8/1/16.
- */
-public class MaxPQ<Key extends Comparable<Key>> {
+    private key[] pq;
+    private int n = 0;
 
-    private Key[] pq;
+    public MaxPQ(int maxN) {
+        pq = (key[]) new Comparable[maxN];
 
-    private int size = 0;
-
-    public MaxPQ(int maxSize) {
-        pq = (Key[]) new Comparable[maxSize + 1];
     }
 
     public boolean isEmpty() {
-        return size == 0;
+        return n == 0;
     }
 
     public int size() {
-        return size;
+        return n;
     }
 
-    public void insert(Key v) {
-        pq[++size] = v;
-        swim(size);
+    public void insert(key v) {
+        pq[++n] = v;
+        swim(n);
     }
 
-    public Key delMax(){
-        Key v = pq[1];
-        AbstractSort.exch(pq, 1, size);
-        size--;
-        sink(1);
-        return v;
+    private boolean less(int k, int j) {
+        return pq[k].compareTo(pq[j]) < 0;
     }
 
-    public void swim(int k){
-        while(k>1 && AbstractSort.less(pq[k/2], pq[k])){
-            AbstractSort.exch(pq, k,k/2);
-            k=k/2;
+    private void exch(int k, int j) {
+        key temp = pq[k];
+        pq[k] = pq[j];
+        pq[j] = temp;
+    }
+
+    private void sink(int k) {
+        while (2*k <= n) {
+            int j = 2 * k;
+            if (less(j, j + 1)) {
+                j = j + 1;
+            }
+            if (less(j, k)) {
+                break;
+            }
+            exch(k, j);
+            k = j;
         }
     }
 
-    public void sink(int k){
-        while(size >= 2*k){
-            int j = 2*k;
-            if(j<size && AbstractSort.less(pq[j], pq[j+1])){
-                j++;
-            }else if(AbstractSort.less(pq[j], pq[k])){
-                break;
-            }
-            AbstractSort.exch(pq, k,j);
-            k=j;
+    private void swim(int k) {
+        while (k > 1 && less(k / 2, k)) {
+            exch(k, k / 2);
+            k = k / 2;
         }
     }
 

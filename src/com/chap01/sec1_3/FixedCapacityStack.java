@@ -1,9 +1,9 @@
 package com.chap01.sec1_3;
 
-import java.util.Iterator;
-
 import com.util.StdIn;
 import com.util.StdOut;
+
+import java.util.Iterator;
 
 public class FixedCapacityStack<Item> implements Iterable<Item> {
 
